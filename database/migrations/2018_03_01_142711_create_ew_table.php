@@ -34,8 +34,8 @@ class CreateEwTable extends Migration
     AGREGAR EL USUARIO DE PREFECTURA PARA QUE PUEDA TAMBIEN ADMINISTRAR
     LAS PUBICACIONES DEL LUGAR
     O SU DE JURISDICCION        
-            
-
+           */           
+     
         <?php
 
     use October\Rain\Database\Schema\Blueprint;
