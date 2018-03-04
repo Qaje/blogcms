@@ -28,13 +28,12 @@ class CreateEwTable extends Migration
     {
         Schema::dropIfExists('ew');
     }
-
+}
 
     /**************************
     AGREGAR EL USUARIO DE PREFECTURA PARA QUE PUEDA TAMBIEN ADMINISTRAR
     LAS PUBICACIONES DEL LUGAR
     O SU DE JURISDICCION        
-           */           
      
         <?php
 
@@ -174,5 +173,6 @@ class CreateEwTable extends Migration
             Schema::dropIfExists('entities');
         }
     }
-    */
+ 
 }
+           */           
