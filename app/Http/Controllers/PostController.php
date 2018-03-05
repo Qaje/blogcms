@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//use App\Http\Request;
+//use App\Http\Controllers\Controller;
+use App\Post;
+
 class PostController extends Controller
 {
     /**
@@ -34,8 +38,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        // validar los datos
+        $this->validate($request, array(
+            'title' => 'required|max:255',
+            'body' => 'required'
+        ));
+        // almacenar en la base de datos
+        $post = new Post;
+
+        $post->title = $request->title;
+        $post->body  = $request->body;
+
+        $post->save();
+        // redireccionar aotra pagina
+        return redirect()->route('posts.show', $post->id);
+    }   
 
     /**
      * Display the specified resource.
