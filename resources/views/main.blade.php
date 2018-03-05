@@ -14,6 +14,7 @@
         <!-- end Bootstrap navbar default-->
             
     <div class="container">
+      @include('partials._messages')
       
         @yield('content')    
 
