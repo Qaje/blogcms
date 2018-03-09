@@ -6,47 +6,10 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateEwTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
-    {
-        Schema::create('ew', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('ew');
-    }
-}
-
-    /**************************
-    AGREGAR EL USUARIO DE PREFECTURA PARA QUE PUEDA TAMBIEN ADMINISTRAR
-    LAS PUBICACIONES DEL LUGAR
-    O SU DE JURISDICCION        
-     
-        <?php
-
-    use October\Rain\Database\Schema\Blueprint;
-    use October\Rain\Database\Updates\Migration;
-
-    use Backend\Models\UserRole;
-
-    
-    class DbBackendAll extends Migration
-    {
-        public function up()
         {
+
             Schema::create('external_users', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id');
@@ -67,6 +30,7 @@ class CreateEwTable extends Migration
                 $table->timestamps();
                 $table->index(['user_id','namespace', 'group', 'item'], 'user_item_index');
             });
+
 
             
             Schema::create('entities', function (Blueprint $table) {
@@ -158,7 +122,7 @@ class CreateEwTable extends Migration
                   ->references('id')->on('superadmins')->onDelete('cascade');
                 $table->timestamps();
             });
-        }
+        
 
 
         public function down()
@@ -172,7 +136,14 @@ class CreateEwTable extends Migration
             Schema::dropIfExists('superadmins');
             Schema::dropIfExists('entities');
         }
-    }
+
+
+    /**************************
+    AGREGAR EL USUARIO DE PREFECTURA PARA QUE PUEDA TAMBIEN ADMINISTRAR
+    LAS PUBICACIONES DEL LUGAR
+    O SU DE JURISDICCION        
+    */ 
+        
  
-}
-           */           
+
+                   
