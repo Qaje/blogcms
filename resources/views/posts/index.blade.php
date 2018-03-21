@@ -17,25 +17,28 @@
     </div><!--finnde row-->
     
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-12">
             <table class="table table-dark">
                 <thead class="thead-dark">
                     <th>#</th>
                     <th>Title</th>
                     <th>Body</th>
                     <th>Created at</th>
-                    <th></th>
+                    <th>Options</th>
                 </thead>
                 
                 <tbody>
                     
                     @foreach ($posts as $post)
                         <tr>
-                            <th>{{ $post->id }}</th>
+                            <td>{{ $post->id }}</td>
                             <td>{{ $post->title }}</td>
-                            <td>{{ $post->body }}</td>
-                            <td>{{ $post->created_at }}</td>
-                            <td><a href="#" class="btn btn-default">View</a><a href="#" class="btn btn-default">Edit</a></td>
+                            <td>{{ substr($post->body,0 , 3) }}{{ strlen($post->body)>3 ? "..." : ""}}</td>
+                            <td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
+                            <td>
+                                <a href="{{ route('posts.show', $post->id )}} " class="btn btn-primary btn-sm">View</a>
+                                <a href="{{ route('posts.edit', $post->id )}}" class="btn btn-warning btn-sm">Edit</a>
+                            </td>
                         </tr>
                     @endforeach
 
