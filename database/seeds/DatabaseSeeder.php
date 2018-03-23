@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use Faker\Factory as Faker;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-    }
+        $faker = Faker::create();
+    	foreach (range(1,10) as $index) {
+	        DB::table('posts')->insert([
+	            'title' => $faker->name,
+	            'body' => $faker->text,
+	        ]);
+	}
+    } 
 }
