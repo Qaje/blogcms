@@ -23,32 +23,20 @@
 
             <div class="row">
                 <div class="col-md-8">
-                    <div class="post">
-                        <h3>Post Title</h3>
-                        <p>
-                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                        </p>
-                            <a href="#" class="btn btn-primary"> Leer Mas</a>
-                        
-                    </div>
+
+                    @foreach($posts as $post)
+                        <div class="post">
+                            <h3>{{ $post->title }}</h3>
+                            <p>
+                                {{ substr($post->body, 0, 150)}} {{strlen($post->body)>150 ? "..." :""}}    
+                            </p>
+                                <a href="#" class="btn btn-primary"> Leer Mas</a>
+                        </div>
                     <hr>
-                    <div class="post">
-                        <h3>Post Title</h3>
-                        <p>
-                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                        </p> 
-                        <a href="#" class="btn btn-primary"> Leer Mas</a>
-                    </div>
-                    <hr>
-                    <div class="post">
-                        <h3>Post Title</h3>
-                        <p>
-                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                        </p>
-                        <a href="#" class="btn btn-primary"> Leer Mas</a>
-                    </div>
-                    <hr>
+                    @endforeach
+                   
                 </div>
+                
                 <div class="col-md-3 col-md-offset-1" >
                     <h2>Sidebar</h2>
                 </div>

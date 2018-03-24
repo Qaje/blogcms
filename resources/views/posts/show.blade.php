@@ -35,8 +35,14 @@
 						{!!Form::close()!!}
 					</div>
 				</div>
-
+				<hr>	
+				<div class="row">
+					<div class="col-md-12">
+						{!! Html::linkRoute('posts.index','<< See all Posts',array[] ,['class'=> 'btn btn-info btn-block']) !!}
+					</div>
+				</div>
 			</div>
+			
 		</div>
 	</div>  
 @endsection
