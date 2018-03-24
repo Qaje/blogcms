@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
     	foreach (range(1,10) as $index) {
 	        DB::table('posts')->insert([
 	            'title' => $faker->name,
-	            'body' => $faker->text,
+                'body' => $faker->text,
+                'slug' => $faker->address,
 	        ]);
 	}
     } 
