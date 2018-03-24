@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->title }}</td>
-                            <td>{{ substr($post->body,0 , 3) }}{{ strlen($post->body)>3 ? "..." : ""}}</td>
+                            <td>{{ substr($post->body,0 , 40) }}{{ strlen($post->body)>3 ? "..." : ""}}</td>
                             <td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
                             <td>
                                 <a href="{{ route('posts.show', $post->id )}} " class="btn btn-primary btn-sm">View</a>
@@ -44,6 +44,9 @@
 
                 </tbody>
             </table>
+            <div class="mx-auto" style="width: 200px;">
+                {!! $posts->links(); !!}
+            </div>
         </div>
     </div>
 @stop
