@@ -14,8 +14,10 @@
 		<div class="col-md-4">
 			<div class="well">
 				<dl class="dl-horizontal">
-					<dt>Url :</dt>
-					<p><a href="{{ Url($post->slug)}}">{{Url($post->slug)}}</a></p>
+					<dt>
+						Url :
+						<label><a href="{{ Url($post->slug)}}">{{Url($post->slug)}}</a></label>
+					</dt>
 				</dl>
 
 				<dl class="dl-horizontal">

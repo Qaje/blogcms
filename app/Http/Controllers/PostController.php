@@ -102,14 +102,16 @@ class PostController extends Controller
     {
         //validacion de datos
         $this->validate($request, array(
-            'title' =>'required|max:255',
-            'body'  =>'required'
+            'title' =>  'required|max:255',
+            'slug'  =>  'required|alpha_dash|min:5|max:255|unique:posts,slug',
+            'body'  =>  'required'
         ));
         //guardar en la base de datos
         $post = Post::find($id);
 
         $post->title = $request->input('title');
-        $post->body  = $request->input('body');
+        $post->slug = $request->input('slug');
+        $post->body = $request->input('body');
 
         $post->save();
         //set flash data  with succes message
