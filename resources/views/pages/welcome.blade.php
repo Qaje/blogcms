@@ -30,7 +30,7 @@
                             <p>
                                 {{ substr($post->body, 0, 150)}} {{strlen($post->body)>150 ? "..." :""}}    
                             </p>
-                                <a href="#" class="btn btn-primary"> Leer Mas</a>
+                        <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-primary"> Leer Mas</a>
                         </div>
                     <hr>
                     @endforeach

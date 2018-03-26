@@ -1,6 +1,6 @@
  @extends('main')
 
- @section('title','| $post->slug ')
+ @section('title',"| $post->title")
 
  @section('content')
 
