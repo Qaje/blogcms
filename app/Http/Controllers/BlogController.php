@@ -13,7 +13,16 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getSingle($slug)
+    public function getIndex()
+    {
+        //return  $slug;
+        //fetch from the DB based  on slug
+        $posts = Post::paginate(2);
+        //return view and past the post objecti
+        return view('blog.index')->withPosts($posts);
+    }
+
+     public function getSingle($slug)
     {
         //return  $slug;
         //fetch from the DB based  on slug
@@ -22,6 +31,7 @@ class BlogController extends Controller
         return view('blog.single')->withPost($post);
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
