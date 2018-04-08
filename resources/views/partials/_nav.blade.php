@@ -27,9 +27,27 @@
                   My Account
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{{ route('posts.index')}}">Posts</a>
+                  
+                  <a class="dropdown-item" href="{{ route('posts.index')}}">Posts</a>
                   <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Logout</a>
+                  
+                  <!--start naav logout-->
+                  @guest
+                  
+                  @else 
+                  <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+                <a class="dropdown-item" href="#" >
+                    {{ Auth::user()->name }} <span class="caret"></span>
+                  </a>
+                  @endguest
+                  <!--end nav logout-->
+
                 </div>
               </li>
             </ul>

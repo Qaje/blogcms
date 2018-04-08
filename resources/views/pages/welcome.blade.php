@@ -44,7 +44,3 @@
 
         </div>
 @endsection
-
-
-  </body>
-</html>
