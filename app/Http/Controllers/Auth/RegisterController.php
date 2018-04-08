@@ -69,4 +69,25 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    protected function showRegistrationForm()
+    {
+        //echo "hello";
+        return redirect('auth.register');
+    }
+    
+    protected function register(Request $request){
+        $user = new User;
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password  = $request->password;
+
+        $user->save();
+
+        Session::flash('success','The User was Registered Successfully!');
+        // redireccionar aotra pagina
+       // return redirect()->route('users.show', $user->id);
+        return redirect('home');
+    }
 }
