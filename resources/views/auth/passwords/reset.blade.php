@@ -12,18 +12,18 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-12">
-                    {!! Form::open(['url'=>'password/email', 'method'=>'POST'])!!}
+                    {!! Form::open(['url'=>'password/reset', 'method'=>'GET'])!!}
 
                     {{ Form::hidden('token',$token) }}
 
                     {{ Form::label('email','Email Address:')}}
-                    {{ Form::email('email', null , ['class'=>'form-control'])}}
-                    
+                    {{ Form::email('email', $email , ['class'=>'form-control'])}}
+                        
                     {{ Form::label('password','New Password:')}}
                     {{ Form::password('password',['class' => 'form-control'])}}
 
                     {{ Form::label('password_confirmation','Confirm new Password:')}}
-                    {{ Form::password('password',['class'=>'form-control'])}}
+                    {{ Form::password('password_confirmation',['class'=>'form-control'])}}
                     
                     {{ Form::submit('Reset Password',['class'=>'btn btn-primary'])}}
 
