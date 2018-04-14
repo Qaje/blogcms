@@ -13,8 +13,13 @@
                 {{ Form::label('slug','Slug :')}}
                 {{ Form::text('slug', null , ['class' => 'form-control'])}}
 
+                {{ Form::label('category_id','Category:', ['class'=>'form-spacing-top'] )}}
+                {{ Form::select('category_id', $categories ,null,['class'=>'form-control'] )}}
+                    
                 {{ Form::label('body', 'Body :', ['class'=>'form-spacing-top']) }}
                 {{ Form::textarea('body', null , ['class'=>'form-control'])}}
+                
+                
         </div>
         <div class="col-md-4">
                 <div class="well">

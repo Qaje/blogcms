@@ -95,8 +95,13 @@ class PostController extends Controller
     {
         //busca  el post en la base de datos para guardar como una variable
         $post = Post::find($id);
+        $categories = Category::all();
+        $cats= array();
+        foreach ($categories as $category) {
+            $cats[$category->id] = $category->name;
+        }
         //returen la vista para las opciones
-        return  view('posts.edit')->withPost($post); 
+        return  view('posts.edit')->withPost($post)->withCategories($cats); 
     }
 
     /**
@@ -112,15 +117,17 @@ class PostController extends Controller
         $post = Post::find($id);
         if($request->input('slug') == $post->slug){
             $this->validate($request, array(
-            'title' =>  'required|max:255',
-            'body'  =>  'required'
+            'title'       =>  'required|max:255',
+            'category_id' => 'required|integer',
+            'body'        =>  'required'
             ));
         }else
         {    
             $this->validate($request, array(
-                'title' =>  'required|max:255',
-                'slug'  =>  'required|alpha_dash|min:5|max:255|unique:posts,slug',
-                'body'  =>  'required'
+                'title'         =>  'required|max:255',
+                'slug'          =>  'required|alpha_dash|min:5|max:255|unique:posts,slug',
+                'category_id'   =>  'required|integer',
+                'body'          =>  'required'
             ));
         }
      
@@ -129,6 +136,7 @@ class PostController extends Controller
 
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
+        $post->category_id = $request->input('category_id');
         $post->body = $request->input('body');
 
         $post->save();
