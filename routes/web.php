@@ -20,6 +20,10 @@ Route::group(['middleware' => ['web']],function(){
 	Route::get('auth/register','Auth\AuthController@getRegister');
 	Route::post('auth/register','Auth\AuthController@postRegister');
 */
+	//Categories
+	Route::resource('categories','CategoryController',['except'=>['create'] ] );
+
+	//blog
 	Route::get('blog/{slug}', ['as' => 'blog.single', 'uses'=>'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
 	Route::get('blog',['uses'=>'BlogController@getIndex','as'=>'blog.index']);
 	Route::get('contact', 'PagesController@getContact');

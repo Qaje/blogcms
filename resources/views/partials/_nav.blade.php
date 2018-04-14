@@ -30,6 +30,7 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     
                     <a class="dropdown-item" href="{{ route('posts.index')}}">Posts</a>
+                    <a class="dropdown-item" href="{{ route('categories.index')}}">Categories</a>
                     <!--start naav logout--> 
                     <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
