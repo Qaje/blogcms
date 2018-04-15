@@ -22,6 +22,9 @@ Route::group(['middleware' => ['web']],function(){
 */
 	//Categories
 	Route::resource('categories','CategoryController',['except'=>['create'] ] );
+	//Tags
+	Route::resource('tags','TagController',['except'=>['create'] ] );
+
 
 	//blog
 	Route::get('blog/{slug}', ['as' => 'blog.single', 'uses'=>'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
