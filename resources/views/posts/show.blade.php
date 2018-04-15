@@ -3,6 +3,15 @@
 @section('title', '| View Post')
 
 @section('content')
+
+@section('stylesheet')
+
+	{!! Html::style('css/parsley.css') !!}
+	{!! Html::style('css/select2.min.css')  !!}
+	<!--add to show tags-->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+@endsection 
+	  
 	<div class="row">
 		<div class="col-md-8">
 
@@ -10,6 +19,16 @@
 	
 			<p class="lead">{{ $post->body }}</p>
 
+			<br>
+
+			<div class="tags">
+				@foreach ($post->tags as $tag)
+					<span class="label label-primary">{{ $tag->name }}</span>
+					
+				@endforeach
+			</div>
+			
+	
 		</div>
 		<div class="col-md-4">
 			<div class="well">
@@ -60,3 +79,13 @@
 		</div>
 	</div>  
 @endsection
+
+@section('scripts')
+
+	{!! Html::script('js/parsley.min.js') !!}
+	{!! Html::script('js/select2.min.js') !!}
+
+	<script type="text/javascript" >
+		$('.select2-multi').select2();
+	</script>
+@endsection 

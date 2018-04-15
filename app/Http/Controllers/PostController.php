@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use Session;
 use App\Category;
+use App\Tag;
 
 class PostController extends Controller
 {   
@@ -36,7 +37,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('posts.create')->withCategories($categories);
+        $tags = Tag::all();
+        return view('posts.create')->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -47,6 +49,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+       //dd($request);
         // validar los datos
         $this->validate($request, array(
             'title'         => 'required|max:255',
@@ -63,6 +67,8 @@ class PostController extends Controller
         $post->body         = $request->body;
 
         $post->save();
+
+        $post->tags()->sync($request->tags, false);
 
         Session::flash('success','The Blog was Successfully save!');
         // redireccionar aotra pagina
