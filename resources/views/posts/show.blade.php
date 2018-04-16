@@ -8,9 +8,11 @@
 
 	{!! Html::style('css/parsley.css') !!}
 	{!! Html::style('css/select2.min.css')  !!}
+	
+
 	<!--add to show tags-->
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 @endsection 
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  
 	<div class="row">
 		<div class="col-md-8">
@@ -23,7 +25,7 @@
 
 			<div class="tags">
 				@foreach ($post->tags as $tag)
-					<span class="label label-primary">{{ $tag->name }}</span>
+					<span class="label label-default">{{ $tag->name }}</span>
 					
 				@endforeach
 			</div>

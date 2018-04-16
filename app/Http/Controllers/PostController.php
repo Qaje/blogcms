@@ -106,8 +106,14 @@ class PostController extends Controller
         foreach ($categories as $category) {
             $cats[$category->id] = $category->name;
         }
+
+        $tags = Tag::all();
+        $tags2 = array();
+        foreach ($tags as $tag) {
+            $tags2[$tag->id] = $tag->name;
+        }
         //returen la vista para las opciones
-        return  view('posts.edit')->withPost($post)->withCategories($cats); 
+        return  view('posts.edit')->withPost($post)->withCategories($cats)->withTags($tags2); 
     }
 
     /**
@@ -146,8 +152,17 @@ class PostController extends Controller
         $post->body = $request->input('body');
 
         $post->save();
-        //set flash data  with succes message
+
+        if (isset($request->tags)) 
+        {
+            $post->tags()->sync($request->tags);    
+        }else
+        {
+            $post->tags()->sync(array());
+        }
         
+
+        //set flash data  with succes message
         Session::flash('success','This Post was suyccessfully saved.');
         //redirection con flash data de posts.show
         return redirect() -> route('posts.show', $post->id);
