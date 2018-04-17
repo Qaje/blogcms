@@ -177,6 +177,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        //eliminar las relaciones
+        $post->tags()->detach();
 
         $post->delete();
         //dd($post);
