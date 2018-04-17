@@ -10,6 +10,8 @@
     <!-- Bootstrap CSS     -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     {{ Html::style('css/styles.css') }}
+    <!--Label to tags-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     @yield('stylesheet')
     
     <!-- jQuery first, then Tether, then Bootstrap JS.
